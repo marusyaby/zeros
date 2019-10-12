@@ -4,17 +4,17 @@ module.exports = function zeros(expression) {
     var factorials = expression.split('*');
 
     factorials.forEach( function (factorial) {
-        if (factorial.includes('!!')) {
-            zeros = 0;
+        if (factorial.includes('!!') && parseInt(factorial)%2 !== 0) {
+            zeros += 0;
         } else {
             var currentNumber = parseInt(factorial);
             while (currentNumber > 0) {
                 currentNumber = Math.floor(currentNumber / 5);
                 zeros += currentNumber;
             }
-            console.log(factorial);
         }
     });
 
     return zeros;
 };
+
